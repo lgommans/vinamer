@@ -38,7 +38,7 @@ and you turn it into this:
 
 Then you just `:wq` (or ZZ) and Vinamer will check your changes and ask you:
 
-   You edited 5/5 lines. Do you want to continue? [y/n]
+    You edited 5/5 lines. Do you want to continue? [y/n]
 
 After confirming, it will show you what it is doing while performing the
 renames. You can also confirm (or cancel) each rename individually, using `-i`
