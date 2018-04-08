@@ -7,7 +7,7 @@ import sys, os, shlex, tempfile
 
 if len(sys.argv) == 1 or '-h' in sys.argv or '--help' in sys.argv:
     print('''Usage:
-  vinamer [-ih] file1 [file2 ...]
+  vinamer [-iyh] file1 [file2 ...]
 
 It writes a temporary file and kicks you into vim. There you edit each name as
 you wish, but keep each file on its own line (the line number works as an ID
