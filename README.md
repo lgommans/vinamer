@@ -1,4 +1,4 @@
-# ViNamer
+# ViNamer (vn)
 
 **Vim-based Renamer**
 
@@ -17,7 +17,7 @@ Imagine you have these files:
     ThePillarsoftheEarthUnabridgedPart4_mp332_lRnZDtCDJfUKDu2odrKGTQaoTJ8VYsq36cDQKONEPM17VeBBG4nhkkGwDLxhBg.aa.mp3
     ThePillarsoftheEarthUnabridgedPart5_mp332_UZdWUYq9bKgTnr-WAy7zCD-q3J27EuttG8Z3QpRtgQLSDFtfA_LPFn19DCk4_A.aa.mp3
 
-And obviously you want to get rid of these crappy filenames. Use `vinamer The*`
+And obviously you want to get rid of these crappy filenames. Use `vn The*`
 and it will start Vim for you, opening a temporary file with the following
 contents:
 
@@ -36,7 +36,7 @@ and you turn it into this:
     The Pillars of the Earth Unabridged Part 4.mp3
     The Pillars of the Earth Unabridged Part 5.mp3
 
-Then you just `:wq` (or ZZ) and Vinamer will rename the files for you, showing what it is doing:
+Then you just `:wq` (or ZZ) and ViNamer will rename the files for you, showing what it is doing:
 
     Renaming "ThePillarsoftheEarthUnabridgedPart1_mp332__gNXrVjh8TdNub9fZTlfuGbwolaGxdgIPe1zeFhUcv7c6UPWcu53osmW9mbRaQ.aa.mp3" to "The Pillars of the Earth Unabridged Part 1.mp3".
     Renaming "ThePillarsoftheEarthUnabridgedPart2_mp332_u6vu09Cadkkp_18ey_1dhb28qka0LPglEsl_FUwJOZPHkJq5P68gkzRNhtQnXg.aa.mp3" to "The Pillars of the Earth Unabridged Part 2.mp3".
@@ -45,7 +45,7 @@ Then you just `:wq` (or ZZ) and Vinamer will rename the files for you, showing w
     Renaming "ThePillarsoftheEarthUnabridgedPart5_mp332_UZdWUYq9bKgTnr-WAy7zCD-q3J27EuttG8Z3QpRtgQLSDFtfA_LPFn19DCk4_A.aa.mp3" to "The Pillars of the Earth Unabridged Part 5.mp3".
 
 You can also confirm (or cancel) each rename individually, using `-i` for
-interactive mode (`vinamer -i The*`).
+interactive mode (`vn -i The*`).
 
 And that's pretty much all there is to it! I've been using it frequently for a
 year now. I've used bulk rename tools before, but knowing Vim pretty well, this

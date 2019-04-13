@@ -7,15 +7,15 @@ import sys, os, shlex, tempfile
 
 if len(sys.argv) == 1 or '-h' in sys.argv or '--help' in sys.argv:
     print('''Usage:
-  vinamer [-iyh] file1 [file2 ...]
+  {self} [-iyh] file1 [file2 ...]
 
 It creates a temporary file and opens Vim. There you edit each name as you
 wish, but keep each file on its own line (the line number works as an ID for
 the file, so if you put a filename on the wrong line number, a different file
-will be renamed!). Then just :wq and vinamer will perform the renames and clean
+will be renamed!). Then just :wq and ViNamer will perform the renames and clean
 up the temp file.
 
-Vinamer will print each rename operation it performs, so even if you made a
+ViNamer will print each rename operation it performs, so even if you made a
 mistake, you can see how each file was renamed.
 
 Options:
@@ -26,7 +26,7 @@ Options:
   -c
     Show a summary and ask for confirmation after exiting Vim.
     Recommended the second time you use it. To cancel renaming, you can also
-    just undo your changes (`u` in Vim) and then `:q`. Vinamer will tell you
+    just undo your changes (`u` in Vim) and then `:q`. ViNamer will tell you
     that the file was not changed and exits without any renames.
 
   -h  --help
@@ -36,8 +36,8 @@ Note that options must be before filenames. This also means that you don't
 need -- to separate options from filenames.
 
 Example usage:
-  vinamer -i /tmp/*
-''')
+  {self} -i /tmp/*
+'''.format(self = sys.argv[0]))
     exit(1)
 
 confirmChanges = False
