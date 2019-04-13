@@ -73,7 +73,7 @@ for i, arg in enumerate(sys.argv[1:]):
         changed += 1
 
 if changed == 0:
-    print('No changes detected in the file.')
+    print('You did not make any changes.')
     exit(0)
 
 if confirmChanges:
