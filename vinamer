@@ -9,23 +9,25 @@ if len(sys.argv) == 1 or '-h' in sys.argv or '--help' in sys.argv:
     print('''Usage:
   vinamer [-iyh] file1 [file2 ...]
 
-It writes a temporary file and kicks you into vim. There you edit each name as
-you wish, but keep each file on its own line (the line number works as an ID
-for the file, so if you put a filename on the wrong line number, a different
-file will be renamed!). Then just :wq or whatever, and the program will perform
-the renames and clean up the temp file.
+It creates a temporary file and opens Vim. There you edit each name as you
+wish, but keep each file on its own line (the line number works as an ID for
+the file, so if you put a filename on the wrong line number, a different file
+will be renamed!). Then just :wq and vinamer will perform the renames and clean
+up the temp file.
 
-The program will show each rename it performs on stdout. This can currently not
-be turned off.
+Vinamer will print each rename operation it performs, so even if you made a
+mistake, you can see how each file was renamed.
 
 Options:
   -i
     Interactive mode, where you are asked to confirm each rename individually.
-    By default, it will check that the number of lines match, show you how many
-    lines it thinks you changed, and ask you whether to go through with it.
+    Recommended when you first use it.
 
-  -y
-    Will not ask for confirmation.
+  -c
+    Show a summary and ask for confirmation after exiting Vim.
+    Recommended the second time you use it. To cancel renaming, you can also
+    just undo your changes (`u` in Vim) and then `:q`. Vinamer will tell you
+    that the file was not changed and exits without any renames.
 
   -h  --help
     Show this help text and exit
@@ -34,14 +36,14 @@ Note that options must be before filenames. This also means that you don't
 need -- to separate options from filenames.
 
 Example usage:
-  vinamer -I /tmp/*
+  vinamer -i /tmp/*
 ''')
     exit(1)
 
-confirmChanges = True
+confirmChanges = False
 confirmEachChange = False
-if sys.argv[1] == '-y':
-    confirmChanges = False
+if sys.argv[1] == '-c':
+    confirmChanges = True
     sys.argv = sys.argv[1:]
 elif sys.argv[1] == '-i':
     confirmChanges = False
