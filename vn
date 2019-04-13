@@ -37,6 +37,8 @@ need -- to separate options from filenames.
 
 Example usage:
   {self} -i /tmp/*
+
+Copyright 2019 Luc Gommans, distributed as GPLv3: see the `LICENSE` file.
 '''.format(self = sys.argv[0]))
     exit(1)
 
