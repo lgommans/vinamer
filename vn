@@ -9,34 +9,39 @@ if len(sys.argv) == 1 or '-h' in sys.argv or '--help' in sys.argv:
     print('''Usage:
   {self} [-iyh] file1 [file2 ...]
 
-It creates a temporary file and opens Vim. There you edit each name as you
-wish, but keep each file on its own line (the line number works as an ID for
-the file, so if you put a filename on the wrong line number, a different file
-will be renamed!). Then just :wq and ViNamer will perform the renames and clean
-up the temp file.
+It opens vim on a temporary file with all filenames. You can edit each filename
+as you wish, but don't move lines around. The line number works as an ID for
+the file, so if you put a filename on another line, a different file will be
+renamed. When you made the desired edits, use :wq and the program will perform
+the renames.
 
-ViNamer will print each rename operation it performs, so even if you made a
+All renames are shown on stdout as they are performed, so even if you made a
 mistake, you can see how each file was renamed.
 
-Options:
+Options (must be before filenames):
   -i
     Interactive mode, where you are asked to confirm each rename individually.
-    Recommended when you first use it.
+    Recommended when you first use vinamer.
 
   -c
     Show a summary and ask for confirmation after exiting Vim.
     Recommended the second time you use it. To cancel renaming, you can also
-    just undo your changes (`u` in Vim) and then `:q`. ViNamer will tell you
+    just undo your changes (`u` in Vim) and then `:q`. Vinamer will tell you
     that the file was not changed and exits without any renames.
 
   -h  --help
     Show this help text and exit
 
-Note that options must be before filenames. This also means that you don't
-need -- to separate options from filenames.
+Example usage for first time use:
+  vinamer -i /some/dir/*
 
-Example usage:
-  {self} -i /tmp/*
+General usage:
+  vinamer /some/dir/*
+
+In case of panic while in vim:
+  :q!
+  This will not save changes, so vinamer will not do any renames.
+  If you already did :w, then use u to undo everything and then :wq.
 
 Copyright 2019 Luc Gommans, distributed as GPLv3: see the `LICENSE` file.
 '''.format(self = sys.argv[0]))
